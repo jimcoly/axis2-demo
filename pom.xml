@@ -48,6 +48,12 @@
             <groupId>org.apache.axis2</groupId>
             <artifactId>axis2-spring</artifactId>
             <version>${axis2.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.axis2</groupId>

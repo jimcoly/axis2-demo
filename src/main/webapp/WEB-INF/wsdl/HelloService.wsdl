@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://axis.bulain.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax21="http://axis.bulain.com/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://axis.bulain.com">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://axis.bulain.com/xsd">
+            <xs:complexType name="Hello">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="response" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://axis.bulain.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://axis.bulain.com">
+            <xs:import namespace="http://axis.bulain.com/xsd"/>
+            <xs:element name="say">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="hello" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="sayResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="handle">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="handleResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Hello"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="hand">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="request" nillable="true" type="ax21:Hello"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="handResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax21:Hello"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="handRequest">
+        <wsdl:part name="parameters" element="ns:hand"/>
+    </wsdl:message>
+    <wsdl:message name="handResponse">
+        <wsdl:part name="parameters" element="ns:handResponse"/>
+    </wsdl:message>
+    <wsdl:message name="sayRequest">
+        <wsdl:part name="parameters" element="ns:say"/>
+    </wsdl:message>
+    <wsdl:message name="sayResponse">
+        <wsdl:part name="parameters" element="ns:sayResponse"/>
+    </wsdl:message>
+    <wsdl:message name="handleRequest">
+        <wsdl:part name="parameters" element="ns:handle"/>
+    </wsdl:message>
+    <wsdl:message name="handleResponse">
+        <wsdl:part name="parameters" element="ns:handleResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="HelloServiceServicePortType">
+        <wsdl:operation name="hand">
+            <wsdl:input message="ns:handRequest" wsaw:Action="urn:hand"/>
+            <wsdl:output message="ns:handResponse" wsaw:Action="urn:handResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="say">
+            <wsdl:input message="ns:sayRequest" wsaw:Action="urn:say"/>
+            <wsdl:output message="ns:sayResponse" wsaw:Action="urn:sayResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="handle">
+            <wsdl:input message="ns:handleRequest" wsaw:Action="urn:handle"/>
+            <wsdl:output message="ns:handleResponse" wsaw:Action="urn:handleResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="HelloServiceServiceSoap11Binding" type="ns:HelloServiceServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="hand">
+            <soap:operation soapAction="urn:hand" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="say">
+            <soap:operation soapAction="urn:say" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="handle">
+            <soap:operation soapAction="urn:handle" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="HelloServiceServiceSoap12Binding" type="ns:HelloServiceServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="hand">
+            <soap12:operation soapAction="urn:hand" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="say">
+            <soap12:operation soapAction="urn:say" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="handle">
+            <soap12:operation soapAction="urn:handle" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="HelloServiceServiceHttpBinding" type="ns:HelloServiceServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="hand">
+            <http:operation location="hand"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="say">
+            <http:operation location="say"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="handle">
+            <http:operation location="handle"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="HelloServiceService">
+        <wsdl:port name="HelloServiceServiceHttpSoap11Endpoint" binding="ns:HelloServiceServiceSoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/HelloService"/>
+        </wsdl:port>
+        <wsdl:port name="HelloServiceServiceHttpSoap12Endpoint" binding="ns:HelloServiceServiceSoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/HelloService"/>
+        </wsdl:port>
+        <wsdl:port name="HelloServiceServiceHttpEndpoint" binding="ns:HelloServiceServiceHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/HelloService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
