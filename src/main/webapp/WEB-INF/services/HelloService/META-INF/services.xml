@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <serviceGroup>
     <service name="HelloService">
-        <description>helloService</description>
+        <description>Hello Service</description>
         <parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier</parameter>
         <parameter name="SpringBeanName">helloService</parameter>
         <operation name="say">
