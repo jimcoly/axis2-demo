@@ -22,3 +22,13 @@ Client side Task:
 2. Generating a client using ADB
 3. Generating a client using XML Beans
 4. Generating a client using JiBX
+
+DemoService
+http://localhost:8082/axis2-demo/services/DemoService?wsld
+http://localhost:8082/axis2-demo/services/DemoService/emerge
+http://localhost:8082/axis2-demo/services/DemoService?emerge
+
+DemoServiceHandler
+http://localhost:8082/axis2-demo/services/DemoServiceHandler?wsdl
+http://localhost:8082/axis2-demo/services/DemoServiceHandler/getValue
+http://localhost:8082/axis2-demo/services/DemoServiceHandler?getValue

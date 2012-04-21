@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <serviceGroup>
-    <service name="DemoService">
+    <service name="DemoServiceHandler">
         <description>simple spring example</description>
         <parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier</parameter>
-        <parameter name="SpringBeanName">demoService</parameter>
-        <operation name="emerge">
-            <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+        <parameter name="SpringBeanName">demoServiceHandler</parameter>
+        <operation name="getValue">
+            <messageReceiver class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver" />
         </operation>
     </service>
 </serviceGroup>
