@@ -32,3 +32,7 @@ DemoServiceHandler
 http://localhost:8082/axis2-demo/services/DemoServiceHandler?wsdl
 http://localhost:8082/axis2-demo/services/DemoServiceHandler/getValue
 http://localhost:8082/axis2-demo/services/DemoServiceHandler?getValue
+
+Jibx
+mvn jibx:schema-codegen -Pjibx
+mvn jibx:bind -Pjibx
