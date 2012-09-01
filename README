@@ -25,8 +25,8 @@ Client side Task:
 
 DemoService
 http://localhost:8082/axis2-demo/services/DemoService?wsdl
-http://localhost:8082/axis2-demo/services/DemoService/emerge
-http://localhost:8082/axis2-demo/services/DemoService?emerge
+http://localhost:8082/axis2-demo/services/DemoService/test01
+http://localhost:8082/axis2-demo/services/DemoService?test01
 
 Axis
 mvn axis2-wsdl2code:java2wsdl -Pjava2wsdl
