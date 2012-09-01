@@ -1,7 +1,0 @@
-<binding xmlns:ns1="http://bulain.com/jibx/demo/1.0" name="binding" package="com.bulain.jibx" trim-whitespace="true">
-  <namespace uri="http://bulain.com/jibx/demo/1.0" default="elements"/>
-  <mapping abstract="true" type-name="ns1:demo" class="com.bulain.jibx.Demo">
-    <value style="element" name="request" get-method="getRequest" set-method="setRequest" usage="optional"/>
-    <value style="element" name="response" get-method="getResponse" set-method="setResponse" usage="optional"/>
-  </mapping>
-</binding>

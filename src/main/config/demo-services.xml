@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <serviceGroup>
     <service name="DemoService">
-        <description>Demo Service</description>
         <parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier</parameter>
         <parameter name="SpringBeanName">demoService</parameter>
-        <operation name="emerge">
-            <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
-        </operation>
     </service>
 </serviceGroup>

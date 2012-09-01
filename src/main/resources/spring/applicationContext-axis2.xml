@@ -2,13 +2,5 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 
-    <bean id="demoService" class="com.bulain.axis.demo.DemoServiceImpl">
-        <property name="val" value="Spring, emerge thyself" />
-    </bean>
-    <bean id="demoServiceHandler" class="com.bulain.axis.demo.DemoServiceHandler">
-        <property name="demoService" ref="demoService" />
-    </bean>
-
-    <bean id="helloService" class="com.bulain.axis.HelloServiceImpl" />
-    
+ 
 </beans>

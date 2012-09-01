@@ -24,15 +24,30 @@ Client side Task:
 4. Generating a client using JiBX
 
 DemoService
-http://localhost:8082/axis2-demo/services/DemoService?wsld
+http://localhost:8082/axis2-demo/services/DemoService?wsdl
 http://localhost:8082/axis2-demo/services/DemoService/emerge
 http://localhost:8082/axis2-demo/services/DemoService?emerge
 
-DemoServiceHandler
-http://localhost:8082/axis2-demo/services/DemoServiceHandler?wsdl
-http://localhost:8082/axis2-demo/services/DemoServiceHandler/getValue
-http://localhost:8082/axis2-demo/services/DemoServiceHandler?getValue
+Axis
+mvn axis2-wsdl2code:java2wsdl -Pjava2wsdl
+mvn axis2-wsdl2code:wsdl2code -Pwsdl2code-adb
+mvn axis2-wsdl2code:wsdl2code -Pwsdl2code-jibx
+mvn axis2-wsdl2code:wsdl2code -Pwsdl2code-axiom  <can't work>
+mvn axis2-wsdl2code:wsdl2code -Pwsdl2code-xmlbeans  <can't work>
+mvn process-classes -P
 
 Jibx
-mvn jibx:schema-codegen -Pjibx
-mvn jibx:bind -Pjibx
+mvn jibx:schema-codegen -Pschema-codegen
+mvn jibx:jibx2wsdl -Pjibx2wsdl
+mvn jibx:bind -Pbind
+mvn process-classes -P
+
+Jetty
+mvn jetty:run
+mvn jetty:run -Pit
+
+Build
+mvn eclipse:eclipse -Pwsdl2code-jibx
+mvn clean package -Pbind -Dmaven.test.skip=true
+mvn clean package -Pbind -Pwsdl2code-jibx -Dmaven.test.skip=true
+mvn test-compile

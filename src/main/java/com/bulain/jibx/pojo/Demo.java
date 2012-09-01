@@ -1,6 +1,6 @@
-package com.bulain.axis;
+package com.bulain.jibx.pojo;
 
-public class Hello {
+public class Demo {
     private String request;
     private String response;
     
