@@ -10,7 +10,4 @@
 .settings/
 target/
 
-src/main/config/DemoService.wsdl
-src/main/config/demo-binding.xml
-src/main/config/pojo.xsd
 src/main/webapp/WEB-INF/services/

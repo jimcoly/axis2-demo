@@ -1,0 +1,8 @@
+<binding xmlns:ns2="http://bulain.com/jibx/pojo" name="binding" package="com.bulain.jibx.pojo" force-classes="true" add-constructors="true">
+  <namespace uri="http://bulain.com/jibx/pojo" default="elements"/>
+  <namespace uri="http://bulain.com/jibx/service/DemoService" prefix="ns1"/>
+  <mapping abstract="true" type-name="ns2:demo" class="com.bulain.jibx.pojo.Demo">
+    <value style="element" name="request" field="request" usage="optional"/>
+    <value style="element" name="response" field="response" usage="optional"/>
+  </mapping>
+</binding>

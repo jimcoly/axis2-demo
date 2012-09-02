@@ -1,0 +1,8 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bulain.com/jibx/pojo" elementFormDefault="qualified" targetNamespace="http://bulain.com/jibx/pojo">
+  <xs:complexType name="demo">
+    <xs:sequence>
+      <xs:element type="xs:string" name="request" minOccurs="0"/>
+      <xs:element type="xs:string" name="response" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

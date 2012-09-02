@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import com.bulain.jibx.pojo.Demo;
 
-public class DemoServiceTest {
+public class DemoServiceClient {
     private DemoServiceStub stub;
 
     @Before

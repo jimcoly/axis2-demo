@@ -48,6 +48,4 @@ mvn jetty:run -Pit
 
 Build
 mvn eclipse:eclipse -Pwsdl2code-jibx
-mvn clean package -Pbind -Dmaven.test.skip=true
-mvn clean package -Pbind -Pwsdl2code-jibx -Dmaven.test.skip=true
-mvn test-compile
+mvn clean package -Pbind -Pwsdl2code-jibx
