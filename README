@@ -15,9 +15,14 @@ If you want to build this project, please follow the next step.
     mvn clean package -Pwsdl2code-jibx -Pschema-codegen -Pbind
     mvn eclipse:eclipse -Pwsdl2code-jibx -Pschema-codegen
     mvn jibx:bind -Pbind
-5, start Jetty
-mvn jetty:run
-mvn jetty:run -Pit
+5, copy generated-sources/axis2/wsdl2code/resources to axis2-demo/WEB-INF/services/DemoService/META-INF
+   update services.xml with the next line.
+   -<parameter name="ServiceClass">com.bulain.axis2.service.demo.DemoServiceSkeleton</parameter>
+   +<parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier</parameter>
+   +<parameter name="SpringBeanName">demoService</parameter>
+6, start Jetty
+   mvn jetty:run
+   mvn jetty:run -Pit
     
     
 Server side Task:
