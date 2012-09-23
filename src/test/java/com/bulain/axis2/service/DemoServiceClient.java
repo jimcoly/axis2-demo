@@ -38,7 +38,7 @@ public class DemoServiceClient {
 
     @Before
     public void setUp() throws IOException {
-        stub = new DemoServiceStub(ctx, "http://localhost:8083/axis2-demo/services/DemoService");
+        stub = new DemoServiceStub(ctx, "http://localhost:8082/axis2-demo/services/DemoService");
     }
 
     @Test
