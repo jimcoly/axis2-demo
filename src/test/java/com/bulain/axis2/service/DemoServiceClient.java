@@ -1,6 +1,7 @@
-package com.bulain.jibx.ws;
+package com.bulain.axis2.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.rmi.RemoteException;
 
@@ -8,7 +9,8 @@ import org.apache.axis2.AxisFault;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.bulain.jibx.pojo.Demo;
+import com.bulain.axis2.pojo._1_0.Demo;
+import com.bulain.axis2.service.demo.DemoServiceStub;
 
 public class DemoServiceClient {
     private DemoServiceStub stub;

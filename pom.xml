@@ -25,6 +25,7 @@
         <httpclient.version>3.1</httpclient.version>
         <axis2.version>1.6.1</axis2.version>
         <jibx.version>1.2.4.5</jibx.version>
+        <wss4j.version>1.6.7</wss4j.version>
     </properties>
 
     <dependencies>
@@ -42,7 +43,14 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-        </dependency> 
+        </dependency>
+        
+        <!-- wss4j -->
+        <dependency>
+            <groupId>org.apache.ws.security</groupId>
+            <artifactId>wss4j</artifactId>
+            <version>${wss4j.version}</version>
+        </dependency>
 
         <!-- axis2 -->
         <dependency>
@@ -294,12 +302,12 @@
                         <configuration>
                             <wsdlFile>src/main/config/DemoService.wsdl</wsdlFile>
                             <databindingName>adb</databindingName>
-                            <packageName>com.bulain.jibx.ws</packageName>
+                            <packageName>com.bulain.axis2.service.demo</packageName>
                             <generateServerSide>true</generateServerSide>
                             <generateServerSideInterface>true</generateServerSideInterface>
                             <generateAllClasses>true</generateAllClasses>
                             <generateServicesXml>true</generateServicesXml>
-                            <generateTestcase>true</generateTestcase>
+                            <generateTestcase>false</generateTestcase>
                             <unwrap>true</unwrap>
                         </configuration>
                     </plugin>
@@ -325,12 +333,12 @@
                         <configuration>
                             <wsdlFile>src/main/config/DemoService.wsdl</wsdlFile>
                             <databindingName>axiom</databindingName>
-                            <packageName>com.bulain.jibx.ws</packageName>
+                            <packageName>com.bulain.axis2.service.demo</packageName>
                             <generateServerSide>true</generateServerSide>
                             <generateServerSideInterface>true</generateServerSideInterface>
                             <generateAllClasses>true</generateAllClasses>
                             <generateServicesXml>true</generateServicesXml>
-                            <generateTestcase>true</generateTestcase>
+                            <generateTestcase>false</generateTestcase>
                             <unwrap>false</unwrap>
                         </configuration>
                         <dependencies>
@@ -363,12 +371,12 @@
                         <configuration>
                             <wsdlFile>src/main/config/DemoService.wsdl</wsdlFile>
                             <databindingName>xmlbeans</databindingName>
-                            <packageName>com.bulain.jibx.ws</packageName>
+                            <packageName>com.bulain.axis2.service.demo</packageName>
                             <generateServerSide>true</generateServerSide>
                             <generateServerSideInterface>true</generateServerSideInterface>
                             <generateAllClasses>true</generateAllClasses>
                             <generateServicesXml>true</generateServicesXml>
-                            <generateTestcase>true</generateTestcase>
+                            <generateTestcase>false</generateTestcase>
                             <unwrap>true</unwrap>
                         </configuration>
                         <dependencies>
@@ -402,12 +410,12 @@
                             <wsdlFile>src/main/config/DemoService.wsdl</wsdlFile>
                             <serviceName>DemoService</serviceName>
                             <databindingName>jibx</databindingName>
-                            <packageName>com.bulain.jibx.ws</packageName>
+                            <packageName>com.bulain.axis2.service.demo</packageName>
                             <generateServerSide>true</generateServerSide>
                             <generateServerSideInterface>true</generateServerSideInterface>
                             <generateAllClasses>true</generateAllClasses>
                             <generateServicesXml>true</generateServicesXml>
-                            <generateTestcase>true</generateTestcase>
+                            <generateTestcase>false</generateTestcase>
                             <unwrap>true</unwrap>
                             <options>
                                 <bindingfile>src/main/config/demo-binding.xml</bindingfile>
@@ -489,6 +497,7 @@
                         <executions>
                             <execution>
                                 <id>schema-codegen</id>
+                                <phase>generate-sources</phase>
                                 <goals>
                                     <goal>schema-codegen</goal>
                                 </goals>
@@ -496,11 +505,12 @@
                         </executions>
                         <configuration>
                             <verbose>true</verbose>
+                            <targetDirectory>target/generated-sources/jibx/src</targetDirectory>
                             <includeSchemas>
                                 <includeSchema>*.xsd</includeSchema>
                             </includeSchemas>
                             <options>
-                                <package>com.bulain.jibx.pojo</package>
+                                <package>com.bulain.axis2.pojo._1_0</package>
                             </options>
                         </configuration>
                     </plugin>

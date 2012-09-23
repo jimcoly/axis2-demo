@@ -1,7 +1,7 @@
-package com.bulain.jibx.service;
+package com.bulain.axis2.service;
 
-import com.bulain.jibx.pojo.Demo;
-import com.bulain.jibx.ws.DemoServiceSkeletonInterface;
+import com.bulain.axis2.pojo._1_0.Demo;
+import com.bulain.axis2.service.demo.DemoServiceSkeletonInterface;
 
 public class DemoServiceImpl implements DemoServiceSkeletonInterface {
 
@@ -10,6 +10,7 @@ public class DemoServiceImpl implements DemoServiceSkeletonInterface {
     }
 
     public Demo test02(Demo request) {
+        request.setResponse("response");
         return request;
     }
 
