@@ -23,7 +23,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <tools.version>1.5</tools.version>
         <httpclient.version>3.1</httpclient.version>
-        <axis2.version>1.6.1</axis2.version>
+        <axis2.version>1.6.2</axis2.version>
+        <rampart.version>1.6.2</rampart.version>
         <jibx.version>1.2.4.5</jibx.version>
         <wss4j.version>1.6.7</wss4j.version>
     </properties>
@@ -53,6 +54,11 @@
         </dependency>
 
         <!-- axis2 -->
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-jaxws-integration</artifactId>
+            <version>${axis2.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.axis2</groupId>
             <artifactId>axis2-spring</artifactId>
@@ -88,6 +94,17 @@
             <groupId>org.apache.axis2</groupId>
             <artifactId>axis2-xmlbeans</artifactId>
             <version>${axis2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rampart</groupId>
+            <artifactId>rampart</artifactId>
+            <version>${rampart.version}</version>
+            <type>mar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rampart</groupId>
+            <artifactId>rampart-core</artifactId>
+            <version>${rampart.version}</version>
         </dependency>
         
         <!-- jibx -->

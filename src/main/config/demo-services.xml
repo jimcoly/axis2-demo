@@ -3,5 +3,18 @@
     <service name="DemoService">
         <parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier</parameter>
         <parameter name="SpringBeanName">demoService</parameter>
+        <module ref="rampart" />
+        <parameter name="InflowSecurity">
+            <action>
+                <items>UsernameToken Timestamp</items>
+                <passwordCallbackClass>com.bulain.axis2.security.ServerPasswordCallback</passwordCallbackClass>
+            </action>
+        </parameter>
+        <parameter name="OutflowSecurity">
+            <action>
+                <items>UsernameToken Timestamp</items>
+                <passwordCallbackClass>com.bulain.axis2.security.ServerPasswordCallback</passwordCallbackClass>
+            </action>
+        </parameter>
     </service>
 </serviceGroup>
