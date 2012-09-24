@@ -100,11 +100,23 @@
             <artifactId>rampart</artifactId>
             <version>${rampart.version}</version>
             <type>mar</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.xalan</groupId>
+                    <artifactId>xalan</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.rampart</groupId>
             <artifactId>rampart-core</artifactId>
             <version>${rampart.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.xalan</groupId>
+                    <artifactId>xalan</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         
         <!-- jibx -->
@@ -332,7 +344,7 @@
             </build>
         </profile>
         <profile>
-            <id>wsdl2code-axiom</id>
+            <id>wsdl2code-jaxbri</id>
             <build>
                 <plugins>
                     <plugin>
@@ -349,19 +361,19 @@
                         </executions>
                         <configuration>
                             <wsdlFile>src/main/config/DemoService.wsdl</wsdlFile>
-                            <databindingName>axiom</databindingName>
+                            <databindingName>jaxbri</databindingName>
                             <packageName>com.bulain.axis2.service.demo</packageName>
                             <generateServerSide>true</generateServerSide>
                             <generateServerSideInterface>true</generateServerSideInterface>
                             <generateAllClasses>true</generateAllClasses>
                             <generateServicesXml>true</generateServicesXml>
                             <generateTestcase>false</generateTestcase>
-                            <unwrap>false</unwrap>
+                            <unwrap>true</unwrap>
                         </configuration>
                         <dependencies>
                             <dependency>
                                 <groupId>org.apache.axis2</groupId>
-                                <artifactId>axis2-kernel</artifactId>
+                                <artifactId>axis2-jaxbri</artifactId>
                                 <version>${axis2.version}</version>
                             </dependency>
                         </dependencies>

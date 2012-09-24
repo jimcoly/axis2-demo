@@ -15,25 +15,28 @@ If you want to build this project, please follow the next step.
     mvn clean package -Pwsdl2code-jibx -Pschema-codegen -Pbind
     mvn eclipse:eclipse -Pwsdl2code-jibx -Pschema-codegen
     mvn jibx:bind -Pbind
-5, copy generated-sources/axis2/wsdl2code/resources to axis2-demo/WEB-INF/services/DemoService/META-INF
+5, start with jaxbri
+    mvn clean package -Pwsdl2code-jaxbri
+    mvn eclipse:eclipse -Pwsdl2code-jaxbri
+6, copy generated-sources/axis2/wsdl2code/resources to axis2-demo/WEB-INF/services/DemoService/META-INF
    update services.xml with the next line.
    -<parameter name="ServiceClass">com.bulain.axis2.service.demo.DemoServiceSkeleton</parameter>
    +<parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier</parameter>
    +<parameter name="SpringBeanName">demoService</parameter>
-6, start Jetty
+7, start Jetty
    mvn jetty:run
    mvn jetty:run -Pit
     
     
 Server side Task:
 1. Deploying POJOs
-2. Building the service using AXIOM
+2. Generating the service using JAXB-RI
 3. Generating the service using ADB
 4. Generating the service using XMLBeans
 5. Generating the service using JiBX
 
 Client side Task:
-1. Creating a client using AXIOM
+1. Generating a client using JAXB-RI
 2. Generating a client using ADB
 3. Generating a client using XML Beans
 4. Generating a client using JiBX
@@ -46,7 +49,7 @@ http://localhost:8082/axis2-demo/services/DemoService?test01
 Axis
 mvn axis2-wsdl2code:wsdl2code -Pwsdl2code-adb
 mvn axis2-wsdl2code:wsdl2code -Pwsdl2code-jibx
-mvn axis2-wsdl2code:wsdl2code -Pwsdl2code-axiom  <can't work>
+mvn axis2-wsdl2code:wsdl2code -Pwsdl2code-jaxbri
 mvn axis2-wsdl2code:wsdl2code -Pwsdl2code-xmlbeans  <can't work>
 mvn process-classes -P
 
