@@ -61,10 +61,10 @@ mvn process-classes -P
 
 Https Encrypt Signature
 #generate server and client jks for soap
-keytool -genkeypair -alias server -keyalg RSA -dname "CN=Server,OU=Development,O=Test,L=Shanghai,S=SH,C=CN" -keystore server.jks -keypass server -storepass server
-keytool -selfcert -alias server -storepass server -keypass server -keystore server.jks
-keytool -genkeypair -alias client -keyalg RSA -dname "CN=Client,OU=Development,O=Test,L=Shanghai,S=SH,C=CN" -keystore client.jks -keypass client -storepass client
-keytool -selfcert -alias client -storepass client -keypass client -keystore client.jks
+keytool -genkeypair -alias server -keyalg RSA -dname "CN=Server,OU=Development,O=Test,L=Shanghai,S=SH,C=CN" -keystore server.jks -keypass server -storepass server -validity 3650
+keytool -selfcert -alias server -storepass server -keypass server -keystore server.jks -validity 3650
+keytool -genkeypair -alias client -keyalg RSA -dname "CN=Client,OU=Development,O=Test,L=Shanghai,S=SH,C=CN" -keystore client.jks -keypass client -storepass client -validity 3650
+keytool -selfcert -alias client -storepass client -keypass client -keystore client.jks -validity 3650
 keytool -list -keystore server.jks -storepass server
 keytool -list -keystore client.jks -storepass client
 
