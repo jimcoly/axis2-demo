@@ -22,7 +22,7 @@ public class ServerPasswordCallback implements CallbackHandler {
             if (cb instanceof WSPasswordCallback) {
                 WSPasswordCallback pc = (WSPasswordCallback) cb;
 
-                String identifier = pc.getIdentifier();
+                String identifier = pc.getIdentifer();
                 if (privateAlais != null && privateAlais.contains(identifier)) {
                     continue;
                 }

@@ -23,10 +23,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <tools.version>1.5</tools.version>
         <httpclient.version>3.1</httpclient.version>
-        <axis2.version>1.6.2</axis2.version>
-        <rampart.version>1.6.2</rampart.version>
-        <jibx.version>1.2.4.5</jibx.version>
-        <wss4j.version>1.6.7</wss4j.version>
+        <axis2.version>1.1.1</axis2.version>
+        <rampart.version>1.1</rampart.version>
+        <jibx.version>1.1.5</jibx.version>
+        <wss4j.version>1.5.1</wss4j.version>
+        <wsdl2code.version>1.1</wsdl2code.version>
+        <java2wsdl.version>1.1</java2wsdl.version>
+        <axiom.version>1.2.2</axiom.version>
     </properties>
 
     <dependencies>
@@ -48,15 +51,21 @@
         
         <!-- wss4j -->
         <dependency>
-            <groupId>org.apache.ws.security</groupId>
+            <groupId>wss4j</groupId>
             <artifactId>wss4j</artifactId>
             <version>${wss4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-impl</artifactId>
+            <version>${axiom.version}</version>
         </dependency>
 
         <!-- axis2 -->
         <dependency>
             <groupId>org.apache.axis2</groupId>
-            <artifactId>axis2-jaxws-integration</artifactId>
+            <artifactId>axis2</artifactId>
             <version>${axis2.version}</version>
         </dependency>
         <dependency>
@@ -72,11 +81,6 @@
         </dependency>
         <dependency>
             <groupId>org.apache.axis2</groupId>
-            <artifactId>axis2-jaxws</artifactId>
-            <version>${axis2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.axis2</groupId>
             <artifactId>axis2-jaxbri</artifactId>
             <version>${axis2.version}</version>
         </dependency>
@@ -87,16 +91,6 @@
         </dependency>
         <dependency>
             <groupId>org.apache.axis2</groupId>
-            <artifactId>axis2-json</artifactId>
-            <version>${axis2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.axis2</groupId>
-            <artifactId>axis2-xmlbeans</artifactId>
-            <version>${axis2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.rampart</groupId>
             <artifactId>rampart</artifactId>
             <version>${rampart.version}</version>
             <type>mar</type>
@@ -108,31 +102,20 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.apache.rampart</groupId>
-            <artifactId>rampart-core</artifactId>
-            <version>${rampart.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.xalan</groupId>
-                    <artifactId>xalan</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.1-beta-10</version>
+        </dependency>
+        <dependency>
+            <groupId>woodstox</groupId>
+            <artifactId>wstx-asl</artifactId>
+            <version>3.0.1</version>
         </dependency>
         
         <!-- jibx -->
         <dependency>
             <groupId>org.jibx</groupId>
             <artifactId>jibx-run</artifactId>
-            <version>${jibx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jibx</groupId>
-            <artifactId>jibx-tools</artifactId>
-            <version>${jibx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jibx</groupId>
-            <artifactId>jibx-schema</artifactId>
             <version>${jibx.version}</version>
         </dependency>
         <dependency>
@@ -162,16 +145,6 @@
     <build>
         <finalName>axis2-demo</finalName>
         <plugins>
-            <plugin>
-                <groupId>org.apache.axis2</groupId>
-                <artifactId>axis2-mar-maven-plugin</artifactId>
-                <version>${axis2.version}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.axis2</groupId>
-                <artifactId>axis2-aar-maven-plugin</artifactId>
-                <version>${axis2.version}</version>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -294,9 +267,10 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.axis2</groupId>
+                        <groupId>org.apache.axis2.maven2</groupId>
                         <artifactId>axis2-java2wsdl-maven-plugin</artifactId>
-                        <version>${axis2.version}</version>
+                        <version>${java2wsdl.version}</version>
+
                         <executions>
                             <execution>
                                 <phase>process-classes</phase>
@@ -317,9 +291,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.axis2</groupId>
+                        <groupId>org.apache.axis2.maven2</groupId>
                         <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-                        <version>${axis2.version}</version>
+                        <version>${wsdl2code.version}</version>
                         <executions>
                             <execution>
                                 <phase>generate-sources</phase>
@@ -348,9 +322,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.axis2</groupId>
+                        <groupId>org.apache.axis2.maven2</groupId>
                         <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-                        <version>${axis2.version}</version>
+                        <version>${wsdl2code.version}</version>
                         <executions>
                             <execution>
                                 <phase>generate-sources</phase>
@@ -386,9 +360,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.axis2</groupId>
+                        <groupId>org.apache.axis2.maven2</groupId>
                         <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-                        <version>${axis2.version}</version>
+                        <version>${wsdl2code.version}</version>
                         <executions>
                             <execution>
                                 <phase>generate-sources</phase>
@@ -424,9 +398,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.axis2</groupId>
+                        <groupId>org.apache.axis2.maven2</groupId>
                         <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
-                        <version>${axis2.version}</version>
+                        <version>${wsdl2code.version}</version>
                         <executions>
                             <execution>
                                 <phase>generate-sources</phase>

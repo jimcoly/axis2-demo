@@ -77,3 +77,8 @@ keytool -exportcert -alias client -file client-pub.cer -storepass client -keysto
 keytool -printcert -file client-pub.cer
 keytool -importcert -alias client -file client-pub.cer -storepass server -keystore server.jks -noprompt
 keytool -list -keystore server.jks -storepass server
+
+#generate code in aixs2-v1.1.1
+wsdl2java -uw -ss -sd -ssi -g -d adb -uri src/main/config/DemoService.wsdl -o target/generated -p com.bulain.axis2.service.demo -sn DemoService
+wsdl2java -uw -ss -sd -ssi -g -d xmlbeans -uri src/main/config/DemoService.wsdl -o target/generated -p com.bulain.axis2.service.demo -sn DemoService
+wsdl2java -uw -ss -sd -ssi -g -d jibx -Ebindingfile src/main/config/demo-binding.xml -uri src/main/config/DemoService.wsdl -o target/generated -p com.bulain.axis2.service.demo -sn DemoService
